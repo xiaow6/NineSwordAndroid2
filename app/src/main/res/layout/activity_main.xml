@@ -4,7 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jiuzhang.guojing.awesomeresume.MainActivity">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="wangxiao"/>
+                <ImageButton
+                    android:id="@+id/edit_basic_info"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_mode_edit_black_18px"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xiaow6@uci.edu"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/user_pic"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/timg"/>
     <!--
         TODO 1: Add TextView
         Add TextView with id "name" here.
