@@ -1,4 +1,4 @@
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,249 +6,253 @@
     android:orientation="vertical"
     android:padding="@dimen/spacing_medium"
     tools:context="com.jiuzhang.guojing.awesomeresume.MainActivity">
-
-    <!--
-        TODO (Challenge 1): Rewrite the below layout using RelativeLayout as opposed to LinearLayout
-        As we learned in class, using RelativeLayout to write the below UI is more efficient.
-        Why? Re-read the slide (ppt)!
-     -->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        android:orientation="vertical">
+        <!--
+            TODO (Challenge 1): Rewrite the below layout using RelativeLayout as opposed to LinearLayout
+            As we learned in class, using RelativeLayout to write the below UI is more efficient.
+            Why? Re-read the slide (ppt)!
+         -->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/user_picture"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/user_name_layout"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_small"
-                android:gravity="center_vertical"
                 android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/user_picture">
+                android:layout_toLeftOf="@+id/user_picture"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/name"
+                <LinearLayout
+                    android:id="@+id/user_name_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/caption_text_size"
-                    android:text="Jing Guo" />
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/user_picture">
 
-                <ImageButton
-                    android:id="@+id/edit_basic_info"
-                    android:layout_width="@dimen/icon_button_size"
-                    android:layout_height="@dimen/icon_button_size"
-                    android:src="@drawable/ic_mode_edit_black_18dp"
-                    android:background="?attr/selectableItemBackground"/>
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/caption_text_size"
+                        android:text="Jing Guo" />
+
+                    <ImageButton
+                        android:id="@+id/edit_basic_info"
+                        android:layout_width="@dimen/icon_button_size"
+                        android:layout_height="@dimen/icon_button_size"
+                        android:src="@drawable/ic_mode_edit_black_18dp"
+                        android:background="?attr/selectableItemBackground"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/user_picture"
+                    android:layout_alignParentLeft="true"
+                    android:text="guojing@jiuzhang.com" />
 
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/user_picture"
+                android:layout_width="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="60dp"
+                android:src="@drawable/guojing"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_small">
+
+            <!--
+                TODO 1: Write constant string in resource file
+                The text attribute of the below TextView is written inline, which is not good for
+                i18n as we talked about in class.
+                Create a string resource in values/strings.xml with name "section_education" and
+                value "Education".
+            -->
             <TextView
-                android:id="@+id/email"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/user_picture"
-                android:layout_alignParentLeft="true"
-                android:text="guojing@jiuzhang.com" />
+                android:textSize="@dimen/caption_text_size"
+                android:textAllCaps="true"
+                android:text="@string/section_education" />
+            <ImageButton
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:src="@drawable/ic_add_black_18px"
+                android:background="?attr/selectableItemBackground"/>
+            <!--
+                TODO 2: Add ImageButton and position it to the right most
+                ImageButton with id "add_education_btn" and set its image to an "add" icon.
+
+                How to import the icon image? Check out "Importing image" in the slide!
+                How to position this ImageButton to the right most? Check out "layout_weight" in the slide!
+            -->
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/user_picture"
-            android:layout_width="60dp"
-            android:layout_alignParentRight="true"
-            android:layout_height="60dp"
-            android:src="@drawable/guojing"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/education_school"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CMU (2012 ~ 2016)" />
+            <ImageButton
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:src="@drawable/ic_mode_edit_black_18dp"
+                android:background="?attr/selectableItemBackground"/>
+            <!--
+                TODO 3: Add ImageButton
+                ImageButton with id "edit_education_btn" and set its image to a "pencil" icon
+                Have we already used the "pencil" icon in this file?
+            -->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:layout_marginBottom="@dimen/spacing_small">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/education_courses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="- Database\n- Algorithm\n- Network" />
 
         <!--
-            TODO 1: Write constant string in resource file
-            The text attribute of the below TextView is written inline, which is not good for
-            i18n as we talked about in class.
-            Create a string resource in values/strings.xml with name "section_education" and
-            value "Education".
+            TODO 4: Run the program! What's wrong?
+            Now you have finished the first three todos, try running the program at this point,
+            you will notice something weird: where are the texts?
+
+            It's because we have used tools:text to set up the text for certain Views, and tools:text
+            will only show up in the Preview of Android Studio.
+
+            In order to see the text in running app, try replacing tools:text with android:text.
         -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/caption_text_size"
-            android:textAllCaps="true"
-            android:text="@string/section_education" />
-        <ImageButton
-            android:layout_width="@dimen/icon_button_size"
-            android:layout_height="@dimen/icon_button_size"
-            android:src="@drawable/ic_add_black_18px"
-            android:background="?attr/selectableItemBackground"/>
+
         <!--
-            TODO 2: Add ImageButton and position it to the right most
-            ImageButton with id "add_education_btn" and set its image to an "add" icon.
-
-            How to import the icon image? Check out "Importing image" in the slide!
-            How to position this ImageButton to the right most? Check out "layout_weight" in the slide!
+            TODO 5: UI for Experience and Projects section
+            The above code set up the UI for Education section of our main UI.
+            Next you should finish the Experience and Projects section of our main UI on your own.
+            Check out "preview.png" to see what it should look like.
         -->
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:id="@+id/education_school"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="CMU (2012 ~ 2016)" />
-        <ImageButton
-            android:layout_width="@dimen/icon_button_size"
-            android:layout_height="@dimen/icon_button_size"
-            android:src="@drawable/ic_mode_edit_black_18dp"
-            android:background="?attr/selectableItemBackground"/>
         <!--
-            TODO 3: Add ImageButton
-            ImageButton with id "edit_education_btn" and set its image to a "pencil" icon
-            Have we already used the "pencil" icon in this file?
+            TODO 6: Wrap a ScrollView around the root LinearLayout
+            Congrats! You have made it this far!
+
+            If you try running the program at this moment, you will notice that the UI goes beyond
+            the screen size and part of it cannot be seen. If not just add as many more Views as you need
+            to this layout file to see what it looks like.
+
+            How do we solve this? Simple! Just wrap a ScrollView around our LinearLayout.
         -->
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/education_courses"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="- Database\n- Algorithm\n- Network" />
-
-    <!--
-        TODO 4: Run the program! What's wrong?
-        Now you have finished the first three todos, try running the program at this point,
-        you will notice something weird: where are the texts?
-
-        It's because we have used tools:text to set up the text for certain Views, and tools:text
-        will only show up in the Preview of Android Studio.
-
-        In order to see the text in running app, try replacing tools:text with android:text.
-    -->
-
-    <!--
-        TODO 5: UI for Experience and Projects section
-        The above code set up the UI for Education section of our main UI.
-        Next you should finish the Experience and Projects section of our main UI on your own.
-        Check out "preview.png" to see what it should look like.
-    -->
-
-    <!--
-        TODO 6: Wrap a ScrollView around the root LinearLayout
-        Congrats! You have made it this far!
-
-        If you try running the program at this moment, you will notice that the UI goes beyond
-        the screen size and part of it cannot be seen. If not just add as many more Views as you need
-        to this layout file to see what it looks like.
-
-        How do we solve this? Simple! Just wrap a ScrollView around our LinearLayout.
-    -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:orientation="horizontal">
-
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:text="@string/section_experience"
-            android:textAllCaps="true"
-            android:textSize="@dimen/caption_text_size">
-        </TextView>
-        <ImageButton
-            android:layout_width="@dimen/icon_button_size"
-            android:layout_height="@dimen/icon_button_size"
-            android:src="@drawable/ic_add_black_18px"
-            android:background="?attr/selectableItemBackground"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/spacing_small"
-        android:layout_gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="@string/section_experience"
+                android:textAllCaps="true"
+                android:textSize="@dimen/caption_text_size">
+            </TextView>
+            <ImageButton
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:src="@drawable/ic_add_black_18px"
+                android:background="?attr/selectableItemBackground"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Linkedin(Mar ~ Aug 2015)"
-            android:id="@+id/experience_Linkedin"/>
-        <ImageButton
-            android:layout_width="@dimen/icon_button_size"
-            android:layout_height="@dimen/icon_button_size"
-            android:src="@drawable/ic_mode_edit_black_18dp"
-            android:background="?attr/selectableItemBackground" />
-    </LinearLayout>
-    <TextView
-        android:id="@+id/work_linkedin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="- Completed xxx using xxxx\n- Algorithm\n- Database" />
-    <LinearLayout
-        android:id="@+id/Project_section"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:layout_marginBottom="@dimen/spacing_small"
-        android:gravity="center_vertical">
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Linkedin(Mar ~ Aug 2015)"
+                android:id="@+id/experience_Linkedin"/>
+            <ImageButton
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:src="@drawable/ic_mode_edit_black_18dp"
+                android:background="?attr/selectableItemBackground" />
+        </LinearLayout>
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/work_linkedin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/section_project"
-            android:textAllCaps="true"
-            android:textSize="@dimen/caption_text_size"/>
-        <ImageButton
-            android:layout_width="@dimen/icon_button_size"
-            android:layout_height="@dimen/icon_button_size"
-            android:src="@drawable/ic_add_black_18px"
-            android:background="?attr/selectableItemBackground"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            android:text="- Completed xxx using xxxx\n- Algorithm\n- Database" />
+        <LinearLayout
+            android:id="@+id/Project_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/section_project"
+                android:textAllCaps="true"
+                android:textSize="@dimen/caption_text_size"/>
+            <ImageButton
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:src="@drawable/ic_add_black_18px"
+                android:background="?attr/selectableItemBackground"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="AwesomeResume - an Android resume app (Mar ~ Aug 2015"/>
+            <ImageButton
+                android:layout_width="@dimen/icon_button_size"
+                android:layout_height="@dimen/icon_button_size"
+                android:src="@drawable/ic_mode_edit_black_18dp"
+                android:background="?attr/selectableItemBackground"/>
+        </LinearLayout>
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AwesomeResume - an Android resume app (Mar ~ Aug 2015"/>
-        <ImageButton
-            android:layout_width="@dimen/icon_button_size"
-            android:layout_height="@dimen/icon_button_size"
-            android:src="@drawable/ic_mode_edit_black_18dp"
-            android:background="?attr/selectableItemBackground"/>
+            android:text="- Completed xxx using xxx\n- Network\n -UI study" />
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="- Completed xxx using xxx\n- Network\n -UI study" />
-</LinearLayout>
+</ScrollView>
